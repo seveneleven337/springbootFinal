@@ -1,4 +1,4 @@
-/*package fi.vamk.database.northwind.controller;
+package fi.vamk.database.northwind.controller;
 
 import fi.vamk.database.northwind.entity.Privilege;
 import fi.vamk.database.northwind.service.PrivilegeService;
@@ -72,4 +72,4 @@ public class PrivilegeController {
                 .collect(Collectors.toList());
         return privilegeList;
     }
-}*/
+}

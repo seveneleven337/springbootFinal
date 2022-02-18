@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 @RestController
-@RequestMapping("/api/ordersStatus")
+@RequestMapping("/api/orderStatus")
 public class OrdersStatusController {
 
     @Autowired
