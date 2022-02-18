@@ -1,5 +1,8 @@
 package fi.vamk.database.northwind.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -16,6 +19,7 @@ public class Invoice {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
+    @JsonIgnore
     private Order orders;
 
     @Column(name = "invoice_date")
@@ -72,6 +76,7 @@ public class Invoice {
     public void setInvoiceDate(Instant invoiceDate) {
         this.invoiceDate = invoiceDate;
     }
+
 
     public Order getOrders() {
         return orders;

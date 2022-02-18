@@ -16,10 +16,12 @@ public class Order {
     @Column(name = "id", nullable = false)
     private Integer id;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
     private Customer customer;
@@ -30,6 +32,7 @@ public class Order {
     @Column(name = "shipped_date")
     private Instant shippedDate;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "shipper_id")
     private Shipper shippers;
@@ -72,10 +75,12 @@ public class Order {
     @Column(name = "tax_rate")
     private Double taxRate;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tax_status_id")
     private OrdersTaxStatus ordersTaxStatus;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "status_id")
     private OrdersStatus ordersStatus;
