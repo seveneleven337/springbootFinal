@@ -23,17 +23,6 @@ public class SalesReport implements Serializable {
     @Column(name = "`default`", nullable = false, columnDefinition="TINYINT")
     private Integer _default;
 
-    @Id
-    @Column(name = "group_by", nullable = false, length = 50)
-    private java.lang.String id1;
-
-    public java.lang.String getId1() {
-        return id1;
-    }
-
-    public void setId1(java.lang.String id1) {
-        this.id1 = id1;
-    }
 
     public Integer get_default() {
         return _default;
