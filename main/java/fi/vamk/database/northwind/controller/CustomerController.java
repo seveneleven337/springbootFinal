@@ -2,7 +2,6 @@ package fi.vamk.database.northwind.controller;
 
 import fi.vamk.database.northwind.entity.Customer;
 import fi.vamk.database.northwind.service.CustomerService;
-import org.apache.catalina.Store;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +13,7 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 @RestController
-@RequestMapping("/customers")
+@RequestMapping("/api/customers")
 public class CustomerController {
 
     @Autowired

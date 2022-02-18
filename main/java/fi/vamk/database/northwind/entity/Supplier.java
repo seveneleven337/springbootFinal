@@ -65,11 +65,11 @@ public class Supplier {
     @Column(name = "notes")
     private String notes;
 
-    @Column(name = "attachments")
+    @Column(name = "attachments", columnDefinition="LONGBLOB")
     private byte[] attachments;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "suppliers")
+    @OneToMany(mappedBy = "suppliers", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<PurchaseOrder> purchaseOrders = new LinkedHashSet<>();
 
     public Set<PurchaseOrder> getPurchaseOrders() {

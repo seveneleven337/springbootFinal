@@ -44,7 +44,7 @@ public class InventoryTransaction {
     private String comments;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "inventory")
+    @OneToMany(mappedBy = "inventory", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<PurchaseOrderDetail> purchaseOrderDetails = new LinkedHashSet<>();
 
     public Set<PurchaseOrderDetail> getPurchaseOrderDetails() {

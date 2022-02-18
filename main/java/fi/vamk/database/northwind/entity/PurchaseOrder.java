@@ -66,11 +66,11 @@ public class PurchaseOrder {
     private Integer submittedBy;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "purchaseOrders")
+    @OneToMany(mappedBy = "purchaseOrders", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<InventoryTransaction> inventoryTransactions = new LinkedHashSet<>();
 
     @JsonIgnore
-    @OneToMany(mappedBy = "purchaseOrders")
+    @OneToMany(mappedBy = "purchaseOrders", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<PurchaseOrderDetail> purchaseOrderDetails = new LinkedHashSet<>();
 
     public Set<PurchaseOrderDetail> getPurchaseOrderDetails() {

@@ -10,14 +10,14 @@ import java.util.Set;
 @Table(name = "orders_tax_status")
 public class OrdersTaxStatus {
     @Id
-    @Column(name = "id", nullable = false)
-    private Boolean id = false;
+    @Column(name = "id", nullable = false, columnDefinition="TINYINT")
+    private Integer id;
 
     @Column(name = "tax_status_name", nullable = false, length = 50)
     private String taxStatusName;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "ordersTaxStatus")
+    @OneToMany(mappedBy = "ordersTaxStatus", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<Order> orders = new LinkedHashSet<>();
 
     public Set<Order> getOrders() {
@@ -36,13 +36,12 @@ public class OrdersTaxStatus {
         this.taxStatusName = taxStatusName;
     }
 
-    public Boolean getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Boolean id) {
+    public void setId(Integer id) {
         this.id = id;
     }
-
     //TODO Reverse Engineering! Migrate other columns to the entity
 }

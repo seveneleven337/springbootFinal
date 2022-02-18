@@ -81,15 +81,15 @@ public class Order {
     private OrdersStatus ordersStatus;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "orders")
+    @OneToMany(mappedBy = "orders", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<InventoryTransaction> inventoryTransactions = new LinkedHashSet<>();
 
     @JsonIgnore
-    @OneToMany(mappedBy = "orders")
+    @OneToMany(mappedBy = "orders", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<OrderDetail> orderDetails = new LinkedHashSet<>();
 
     @JsonIgnore
-    @OneToMany(mappedBy = "orders")
+    @OneToMany(mappedBy = "orders", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<Invoice> invoices = new LinkedHashSet<>();
 
     public Set<Invoice> getInvoices() {

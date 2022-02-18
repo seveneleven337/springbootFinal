@@ -34,13 +34,13 @@ public class PurchaseOrderDetail {
     private Instant dateReceived;
 
     @Column(name = "posted_to_inventory", nullable = false)
-    private Boolean postedToInventory = false;
+    private Integer postedToInventory;
 
-    public Boolean getPostedToInventory() {
+    public Integer getPostedToInventory() {
         return postedToInventory;
     }
 
-    public void setPostedToInventory(Boolean postedToInventory) {
+    public void setPostedToInventory(Integer postedToInventory) {
         this.postedToInventory = postedToInventory;
     }
 

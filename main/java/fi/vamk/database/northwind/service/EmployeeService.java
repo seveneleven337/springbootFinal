@@ -1,8 +1,6 @@
 package fi.vamk.database.northwind.service;
 
-import fi.vamk.database.northwind.entity.Customer;
 import fi.vamk.database.northwind.entity.Employee;
-import fi.vamk.database.northwind.repository.CustomerRepository;
 import fi.vamk.database.northwind.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

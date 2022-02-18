@@ -45,7 +45,7 @@ public class Product {
     private String quantityPerUnit;
 
     @Column(name = "discontinued", nullable = false)
-    private Boolean discontinued = false;
+    private Integer discontinued;
 
     @Column(name = "minimum_reorder_quantity")
     private Integer minimumReorderQuantity;
@@ -53,19 +53,19 @@ public class Product {
     @Column(name = "category", length = 50)
     private String category;
 
-    @Column(name = "attachments")
+    @Column(name = "attachments", columnDefinition="LONGBLOB")
     private byte[] attachments;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "products")
+    @OneToMany(mappedBy = "products", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<InventoryTransaction> inventoryTransactions = new LinkedHashSet<>();
 
     @JsonIgnore
-    @OneToMany(mappedBy = "products")
+    @OneToMany(mappedBy = "products", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<OrderDetail> orderDetails = new LinkedHashSet<>();
 
     @JsonIgnore
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<PurchaseOrderDetail> purchaseOrderDetails = new LinkedHashSet<>();
 
     public Set<PurchaseOrderDetail> getPurchaseOrderDetails() {
@@ -116,11 +116,11 @@ public class Product {
         this.minimumReorderQuantity = minimumReorderQuantity;
     }
 
-    public Boolean getDiscontinued() {
+    public Integer getDiscontinued() {
         return discontinued;
     }
 
-    public void setDiscontinued(Boolean discontinued) {
+    public void setDiscontinued(Integer discontinued) {
         this.discontinued = discontinued;
     }
 

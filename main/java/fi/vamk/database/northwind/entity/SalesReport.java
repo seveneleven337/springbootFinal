@@ -20,8 +20,8 @@ public class SalesReport implements Serializable {
     @Column(name = "filter_row_source")
     private String filterRowSource;
 
-    @Column(name = "`default`", nullable = false)
-    private Boolean _default = false;
+    @Column(name = "`default`", nullable = false, columnDefinition="TINYINT")
+    private Integer _default;
 
     @Id
     @Column(name = "group_by", nullable = false, length = 50)
@@ -35,11 +35,11 @@ public class SalesReport implements Serializable {
         this.id1 = id1;
     }
 
-    public Boolean get_default() {
+    public Integer get_default() {
         return _default;
     }
 
-    public void set_default(Boolean _default) {
+    public void set_default(Integer _default) {
         this._default = _default;
     }
 

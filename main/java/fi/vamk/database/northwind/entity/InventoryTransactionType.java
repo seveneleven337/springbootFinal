@@ -17,7 +17,7 @@ public class InventoryTransactionType {
     private String typeName;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "transactionType")
+    @OneToMany(mappedBy = "transactionType", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<InventoryTransaction> inventoryTransactions = new LinkedHashSet<>();
 
     public Set<InventoryTransaction> getInventoryTransactions() {

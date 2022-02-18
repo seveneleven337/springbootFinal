@@ -17,7 +17,7 @@ public class PurchaseOrderStatus {
     private String status;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "status")
+    @OneToMany(mappedBy = "status", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<PurchaseOrder> purchaseOrders = new LinkedHashSet<>();
 
     public Set<PurchaseOrder> getPurchaseOrders() {

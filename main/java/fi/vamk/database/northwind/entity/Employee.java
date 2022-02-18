@@ -72,11 +72,11 @@ public class Employee {
     @Column(name = "notes")
     private String notes;
 
-    @Column(name = "attachments")
+    @Column(name = "attachments", columnDefinition="LONGBLOB")
     private byte[] attachments;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "createdBy")
+    @OneToMany(mappedBy = "createdBy", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<PurchaseOrder> purchaseOrders = new LinkedHashSet<>();
 
     @ManyToMany
@@ -86,7 +86,7 @@ public class Employee {
     private Set<Privilege> privileges = new LinkedHashSet<>();
 
     @JsonIgnore
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<Order> orders = new LinkedHashSet<>();
 
     public Set<Order> getOrders() {
