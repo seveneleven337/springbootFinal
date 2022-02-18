@@ -17,14 +17,7 @@ public class Privilege {
 
     @ManyToMany(mappedBy = "privileges")
     private Set<Employee> employees = new LinkedHashSet<>();
-
-    public Set<Employee> getEmployees() {
-        return employees;
-    }
-
-    public void setEmployees(Set<Employee> employees) {
-        this.employees = employees;
-    }
+    
 
     public String getPrivilegeName() {
         return privilegeName;
