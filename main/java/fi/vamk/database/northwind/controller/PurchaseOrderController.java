@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 @RestController
-@RequestMapping("/api/purchaseOrder")
+@RequestMapping("/api/purchaseOrders")
 public class PurchaseOrderController {
 
     @Autowired
