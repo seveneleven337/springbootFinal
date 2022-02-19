@@ -1,5 +1,7 @@
 package fi.vamk.database.northwind.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,11 +13,13 @@ public class EmployeePrivilege {
     @EmbeddedId
     private EmployeePrivilegeId id;
 
+    @JsonIgnore
     @MapsId("employeeId")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "employee_id", nullable = false)
     private Employee employee;
 
+    @JsonIgnore
     @MapsId("privilegeId")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "privilege_id", nullable = false)
