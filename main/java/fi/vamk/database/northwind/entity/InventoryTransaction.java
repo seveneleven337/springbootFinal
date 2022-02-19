@@ -15,6 +15,7 @@ public class InventoryTransaction {
     @Column(name = "id", nullable = false)
     private Integer id;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "transaction_type")
     private InventoryTransactionType transactionType;
@@ -25,6 +26,7 @@ public class InventoryTransaction {
     @Column(name = "transaction_modified_date")
     private Instant transactionModifiedDate;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "product_id", nullable = false)
     private Product products;
@@ -32,10 +34,12 @@ public class InventoryTransaction {
     @Column(name = "quantity", nullable = false)
     private Integer quantity;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "purchase_order_id")
     private PurchaseOrder purchaseOrders;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_order_id")
     private Order orders;
